@@ -8,11 +8,11 @@ var titleistSound = angular.module('titleistSound', [
 // ROUTES 
 titleistSound.config(['$routeProvider', function($routeProvider){
     $routeProvider.
-    when('/list', {
-        templateUrl: 'partials/list.html',
+    when('/capture', {
+        templateUrl: 'partials/capture.html',
         controller: 'SoundController'
     }).
     otherwise({
-        redirectTo: '/list'
+        redirectTo: '/capture'
     })
 }]);

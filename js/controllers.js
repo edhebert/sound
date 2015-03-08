@@ -28,7 +28,7 @@ appControllers.controller('SoundController', function($scope, p5){
 
 
             
-            var smoothing = 0.5;
+            var smoothing = 0.9;
 
             // sound buffer to analyze between 16-1024 (a power of 2)
             // duration of buffer == (bins * 2) / 44100 
@@ -40,7 +40,7 @@ appControllers.controller('SoundController', function($scope, p5){
             // analyze input from the mic
             fft.setInput(mic);
 
-            p.createCanvas(p.windowWidth * 0.48, p.windowHeight * 0.25);
+            p.createCanvas(p.windowWidth * 0.98, p.windowHeight * 0.25);
             p.noStroke();
             // sound.play();
         };
@@ -91,19 +91,20 @@ appControllers.controller('SoundController', function($scope, p5){
 
             // build fft analysis array
             var data = [];
+            var dataArray = [];
 
             for (var i = minFreq; i < maxFreq; i=i + freqGap) {
                 // get energy at this frequency
                 currentEnergy = fft.getEnergy(i);
 
                 // push each value as a JSON object
-                data.push({
-                    'frequency': i, 
-                    'amplitude' : currentEnergy
-                 });
+                // data.push({
+                //     'frequency': i, 
+                //     'amplitude' : currentEnergy
+                //  });
 
                 // push the x, y values to a data array
-                // data.push([i, currentEnergy]);
+                dataArray.push([i, currentEnergy]);
 
                 if (currentEnergy > peakAmplitude) {
                     // this is the new peak - assign current freq and amplitude as peaks
@@ -127,7 +128,7 @@ appControllers.controller('SoundController', function($scope, p5){
             $scope.treble = Math.round(fft.getEnergy('treble'));
 
             // output the file (file extension determines the save format)
-            // p.saveJSON(data, 'audio-spectrum.json');
+            // p.saveJSON(data, 'audio-spectrum.json', true);
 
             // this is required, else the save routine will loop uncontrollably
             // return false;  
@@ -135,17 +136,49 @@ appControllers.controller('SoundController', function($scope, p5){
             // stop the audio 
             // mic.stop();
 
+            //plot the data to a highchart
+
+            $(function () {
+                $('#highchart').highcharts({
+                    chart: {
+                        type: 'spline',
+                        zoomType: 'x'
+                    },
+                    colors: [
+                        '#DB4105', 
+                        '#0066FF', 
+                        '#00CCFF'],
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: 'Shot Analysis'
+                    },
+                    xAxis: {
+                        title: {
+                            text: 'Frequency'
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Amplitude'
+                        }
+                    },
+                    series: [{
+                        name: "Ball Name",
+                        data: dataArray
+                    }],
+                    exporting: {
+                        enabled: true
+                    }
+                });
+            });
+
+
             //update the Angular scope with this data, as it doesn't bind automatically
             $scope.$apply();
         }
     }
-
-    $scope.bio = {
-        'name' : 'Ed Hebert - testing a scope variable!',
-        'title': ' R&D Guy',
-        'company': "Titleist"
-    }
-
 });
 
 appControllers.controller('AnotherController', function($scope){
