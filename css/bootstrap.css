@@ -8274,7 +8274,7 @@ html {
 }
 body {
   /* Margin bottom by footer height (75) + fixed header height (100) */
-  margin-bottom: 175px;
+  margin-bottom: 75px;
 }
 footer {
   background-color: #4f827c;
@@ -8291,7 +8291,7 @@ footer p {
   font-size: 12px;
 }
 canvas {
-  margin: 100px 0 20px 0;
+  margin: 100px 0 40px 0;
 }
 animate-show {
   opacity: 1;
