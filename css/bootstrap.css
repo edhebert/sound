@@ -8261,6 +8261,35 @@ header h1 {
   height: 50px;
   background: url(../img/t-logo-opt.svg) no-repeat top left;
 }
+.waiting {
+  margin-top: 50px;
+  color: #999;
+  text-align: center;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height (75) + fixed header height (100) */
+  margin-bottom: 175px;
+}
+footer {
+  background-color: #4f827c;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 75px;
+}
+footer p {
+  color: #fff;
+  padding-top: 10px;
+  font-weight: 900;
+  font-size: 12px;
+}
 canvas {
   margin: 100px 0 20px 0;
 }
