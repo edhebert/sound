@@ -1,0 +1,1042 @@
+[
+  {
+    "frequency": 2000,
+    "amplitude": 92
+  },
+  {
+    "frequency": 2050,
+    "amplitude": 97
+  },
+  {
+    "frequency": 2100,
+    "amplitude": 77
+  },
+  {
+    "frequency": 2150,
+    "amplitude": 60
+  },
+  {
+    "frequency": 2200,
+    "amplitude": 52
+  },
+  {
+    "frequency": 2250,
+    "amplitude": 50
+  },
+  {
+    "frequency": 2300,
+    "amplitude": 48
+  },
+  {
+    "frequency": 2350,
+    "amplitude": 39
+  },
+  {
+    "frequency": 2400,
+    "amplitude": 6
+  },
+  {
+    "frequency": 2450,
+    "amplitude": 3
+  },
+  {
+    "frequency": 2500,
+    "amplitude": 9
+  },
+  {
+    "frequency": 2550,
+    "amplitude": 29
+  },
+  {
+    "frequency": 2600,
+    "amplitude": 43
+  },
+  {
+    "frequency": 2650,
+    "amplitude": 49
+  },
+  {
+    "frequency": 2700,
+    "amplitude": 29
+  },
+  {
+    "frequency": 2750,
+    "amplitude": 37
+  },
+  {
+    "frequency": 2800,
+    "amplitude": 24
+  },
+  {
+    "frequency": 2850,
+    "amplitude": 41
+  },
+  {
+    "frequency": 2900,
+    "amplitude": 28
+  },
+  {
+    "frequency": 2950,
+    "amplitude": 30
+  },
+  {
+    "frequency": 3000,
+    "amplitude": 33
+  },
+  {
+    "frequency": 3050,
+    "amplitude": 31
+  },
+  {
+    "frequency": 3100,
+    "amplitude": 4
+  },
+  {
+    "frequency": 3150,
+    "amplitude": 25
+  },
+  {
+    "frequency": 3200,
+    "amplitude": 48
+  },
+  {
+    "frequency": 3250,
+    "amplitude": 26
+  },
+  {
+    "frequency": 3300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3350,
+    "amplitude": 19
+  },
+  {
+    "frequency": 3400,
+    "amplitude": 45
+  },
+  {
+    "frequency": 3450,
+    "amplitude": 25
+  },
+  {
+    "frequency": 3500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3550,
+    "amplitude": 27
+  },
+  {
+    "frequency": 3600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 3950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4650,
+    "amplitude": 2
+  },
+  {
+    "frequency": 4700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 4950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 5950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 6950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 7950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 8950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 9950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 10950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 11950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 12950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 13950,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14000,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14050,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14100,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14150,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14200,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14250,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14300,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14350,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14400,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14450,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14500,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14550,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14600,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14650,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14700,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14750,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14800,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14850,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14900,
+    "amplitude": 0
+  },
+  {
+    "frequency": 14950,
+    "amplitude": 0
+  }
+]
