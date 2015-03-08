@@ -40,13 +40,13 @@ appControllers.controller('SoundController', function($scope, p5){
             // analyze input from the mic
             fft.setInput(mic);
 
-            p.createCanvas(p.windowWidth * 0.98, p.windowHeight * 0.25);
+            p.createCanvas(p.windowWidth, p.windowHeight * 0.35);
             p.noStroke();
             // sound.play();
         };
 
         p.draw = function() {
-            p.background(249);
+            p.background(112, 185, 176);
 
             var spectrum = fft.analyze(); 
 
@@ -60,7 +60,7 @@ appControllers.controller('SoundController', function($scope, p5){
 
             p.noFill();
 
-            p.stroke(100,100,100); 
+            p.stroke(255); 
             p.strokeWeight(1);
             p.beginShape();
             for (var i = 0; i< spectrum.length; i++){
@@ -75,10 +75,10 @@ appControllers.controller('SoundController', function($scope, p5){
         var analyzeSound = function() {
 
             // pulse background color red 
-            p.background(255, 0, 0);
+            p.background(229, 136, 94);
 
             // sound has now been analyzed
-            // analyzed = true;
+            analyzed = true;
 
             // find maximum amplitude in a given range of frequencies
             var minFreq = 1000;
@@ -118,7 +118,14 @@ appControllers.controller('SoundController', function($scope, p5){
 
             $scope.soundData = data;
 
-            // energy in different parts of the audio spectrum (for visuals perhaps?)
+            // energy in different parts of the audio spectrum 
+            // these vals are tweakable in p5.sound.js
+            // this.bass = [20, 140];
+            // this.lowMid = [140, 400];
+            // this.mid = [400, 2600];
+            // this.highMid = [2600, 5200];
+            // this.treble = [5200, 14000];
+
             $scope.peakFrequency = peakFrequency;
             $scope.peakAmplitude = peakAmplitude;
             $scope.bass = Math.round(fft.getEnergy('bass'));
@@ -145,14 +152,14 @@ appControllers.controller('SoundController', function($scope, p5){
                         zoomType: 'x'
                     },
                     colors: [
-                        '#DB4105', 
+                        '#E5885E', 
                         '#0066FF', 
                         '#00CCFF'],
                     credits: {
                         enabled: false
                     },
                     title: {
-                        text: 'Shot Analysis'
+                        text: ''
                     },
                     xAxis: {
                         title: {
@@ -165,7 +172,7 @@ appControllers.controller('SoundController', function($scope, p5){
                         }
                     },
                     series: [{
-                        name: "Ball Name",
+                        name: "Sound Capture",
                         data: dataArray
                     }],
                     exporting: {
