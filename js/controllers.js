@@ -43,7 +43,7 @@ appControllers.controller('SoundController', function($scope, p5){
             // analyze input from the mic
             fft.setInput(mic);
 
-            p.createCanvas(p.windowWidth, p.windowHeight * 0.35);
+            p.createCanvas(p.windowWidth, p.windowHeight * 0.25);
             p.noStroke();
             // sound.play();
         };
@@ -150,7 +150,8 @@ appControllers.controller('SoundController', function($scope, p5){
             $('#highchart').highcharts({
                 chart: {
                     type: 'spline',
-                    zoomType: 'x'
+                    zoomType: 'x',
+                    height: 500
                 },
                 colors: [
                     '#E5885E', 
@@ -170,7 +171,10 @@ appControllers.controller('SoundController', function($scope, p5){
                 yAxis: {
                     title: {
                         text: 'Amplitude'
-                    }
+                    },
+                    min: 0,
+                    max: 250,
+                    tickinterval: 50
                 },
                 series: [{
                     name: "Sound Capture",
