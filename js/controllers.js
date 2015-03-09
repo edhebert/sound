@@ -51,7 +51,7 @@ appControllers.controller('SoundController', function($scope, p5){
         };
 
         p.draw = function() {
-            p.background(112, 185, 176);
+            p.background(122, 160, 175);
 
             var spectrum = fft.analyze(); 
 
@@ -73,8 +73,6 @@ appControllers.controller('SoundController', function($scope, p5){
                 p.vertex(i * 2, p.map(spectrum[i], 0, 255, p.height, 0) );
             }
             p.endShape();
-
-            // $scope.$digest();
         };
 
         var analyzeSound = function() {
