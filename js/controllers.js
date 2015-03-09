@@ -1,7 +1,17 @@
+/*  Titleist Acoustics Testing
+    ver 0.0.1 
+    3/1/2015
+    Ed Hebert ed.hebert@acushnetgolf.com
+*/
+
+
 var appControllers = angular.module('appControllers', ['ngAnimate']);
 
 appControllers.controller('SoundController', function($scope, p5){
 
+    // tell Angular that the mic is on
+    $scope.mic = true;
+            
     $scope.mySketch = function(p) {
 
         // the sound audio waveform captured from the mic
@@ -28,9 +38,6 @@ appControllers.controller('SoundController', function($scope, p5){
             // initialize the microphone
             mic = new p5.AudioIn();
             mic.start();
-
-            // tell Angular that the mic is on
-            $scope.mic = true;
 
             // smooth FFT by averaging with previous samples            
             var smoothing = 0.9;
