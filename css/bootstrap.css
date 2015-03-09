@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,900,300italic);
+@import url(//fonts.googleapis.com/css?family=Lato:300,900,300italic);
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -3184,8 +3184,8 @@ fieldset[disabled] .btn-info.active {
 }
 .btn-warning {
   color: #ffffff;
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #e5885e;
+  border-color: #e17848;
 }
 .btn-warning:hover,
 .btn-warning:focus,
@@ -3194,8 +3194,8 @@ fieldset[disabled] .btn-info.active {
 .btn-warning.active,
 .open > .dropdown-toggle.btn-warning {
   color: #ffffff;
-  background-color: #ec971f;
-  border-color: #d58512;
+  background-color: #de6832;
+  border-color: #cb5621;
 }
 .btn-warning:active,
 .btn-warning.active,
@@ -3220,11 +3220,11 @@ fieldset[disabled] .btn-warning:active,
 .btn-warning.disabled.active,
 .btn-warning[disabled].active,
 fieldset[disabled] .btn-warning.active {
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #e5885e;
+  border-color: #e17848;
 }
 .btn-warning .badge {
-  color: #f0ad4e;
+  color: #e5885e;
   background-color: #ffffff;
 }
 .btn-danger {
@@ -4758,11 +4758,11 @@ a.label:focus {
   background-color: #31b0d5;
 }
 .label-warning {
-  background-color: #f0ad4e;
+  background-color: #e5885e;
 }
 .label-warning[href]:hover,
 .label-warning[href]:focus {
-  background-color: #ec971f;
+  background-color: #de6832;
 }
 .label-danger {
   background-color: #d9534f;
@@ -5026,7 +5026,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-warning {
-  background-color: #f0ad4e;
+  background-color: #e5885e;
 }
 .progress-striped .progress-bar-warning {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -8266,6 +8266,9 @@ header h1 {
   color: #999;
   text-align: center;
 }
+.save-btn {
+  text-align: right;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -8296,7 +8299,6 @@ canvas {
 animate-show {
   opacity: 1;
 }
-.animate-show.ng-hide-add.ng-hide-add-active,
 .animate-show.ng-hide-remove.ng-hide-remove-active {
   -webkit-transition: all linear 0.5s;
   -moz-transition: all linear 0.5s;

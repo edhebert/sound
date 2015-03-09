@@ -10,6 +10,9 @@ appControllers.controller('SoundController', function($scope, p5){
         // the FFT analysis of the sound
         var fft;
         
+        // the sound data array
+        var data =[];
+
         // boolean to denote whether sound has been hit
         var analyzed = false;
 
@@ -79,9 +82,10 @@ appControllers.controller('SoundController', function($scope, p5){
 
             // sound has now been analyzed
             analyzed = true;
+            $scope.analyzed = analyzed;
 
             // find maximum amplitude in a given range of frequencies
-            var minFreq = 1000;
+            var minFreq = 0;
             var maxFreq = 20000;
             var freqGap = 25;
 
@@ -90,7 +94,6 @@ appControllers.controller('SoundController', function($scope, p5){
             var peakFrequency = 0;
 
             // build fft analysis array
-            var data = [];
             var dataArray = [];
 
             for (var i = minFreq; i < maxFreq; i=i + freqGap) {
@@ -98,15 +101,16 @@ appControllers.controller('SoundController', function($scope, p5){
                 currentEnergy = fft.getEnergy(i);
 
                 // push each value as a JSON object
-                // data.push({
-                //     'frequency': i, 
-                //     'amplitude' : currentEnergy
-                //  });
+                data.push({
+                    'frequency': i, 
+                    'amplitude' : currentEnergy
+                 });
 
                 // push the x, y values to a data array
                 dataArray.push([i, currentEnergy]);
 
-                if (currentEnergy > peakAmplitude) {
+                // find the peak frequncy in the 2-5K frequency range
+                if (((i >= 2000) && (i <= 5000)) && (currentEnergy > peakAmplitude)) {
                     // this is the new peak - assign current freq and amplitude as peaks
                     peakAmplitude = currentEnergy;
                     peakFrequency = i;
@@ -116,7 +120,7 @@ appControllers.controller('SoundController', function($scope, p5){
             // send data to an element in the main index template (not a partial)
             //document.getElementById("output").innerHTML = JSON.stringify(data);
 
-            $scope.soundData = data;
+            // $scope.soundData = data;
 
             // energy in different parts of the audio spectrum 
             // these vals are tweakable in p5.sound.js
@@ -134,65 +138,67 @@ appControllers.controller('SoundController', function($scope, p5){
             $scope.highMid = Math.round(fft.getEnergy('highMid'));
             $scope.treble = Math.round(fft.getEnergy('treble'));
 
-            // output the file (file extension determines the save format)
-            // p.saveJSON(data, 'audio-spectrum.json', true);
-
-            // this is required, else the save routine will loop uncontrollably
-            // return false;  
 
             // stop the audio 
             // mic.stop();
 
-            //plot the data to a highchart
-
-            $(function () {
-                $('#highchart').highcharts({
-                    chart: {
-                        type: 'spline',
-                        zoomType: 'x'
-                    },
-                    colors: [
-                        '#E5885E', 
-                        '#0066FF', 
-                        '#00CCFF'],
-                    credits: {
-                        enabled: false
-                    },
-                    title: {
-                        text: ''
-                    },
-                    xAxis: {
-                        title: {
-                            text: 'Frequency'
-                        }
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Amplitude'
-                        }
-                    },
-                    series: [{
-                        name: "Sound Capture",
-                        data: dataArray
-                    }],
-                    exporting: {
-                        enabled: true
-                    }
-                });
-            });
-
-
             //update the Angular scope with this data, as it doesn't bind automatically
             $scope.$apply();
+
+            //plot the data to a highchart
+
+            $('#highchart').highcharts({
+                chart: {
+                    type: 'spline',
+                    zoomType: 'x'
+                },
+                colors: [
+                    '#E5885E', 
+                    '#0066FF', 
+                    '#00CCFF'],
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: ''
+                },
+                xAxis: {
+                    title: {
+                        text: 'Frequency'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Amplitude'
+                    }
+                },
+                series: [{
+                    name: "Sound Capture",
+                    data: dataArray
+                }],
+                exporting: {
+                    enabled: true
+                }
+            });
         }
+
+        $scope.resetSound = function(save) {
+            if(save) {
+                // output the file (file extension determines the save format)
+                p.saveJSON(data, 'audio-spectrum.json', true);
+            }
+            // reset so that sound can be analyzed again
+            $scope.analyzed = '';
+            analyzed = false;
+        }
+
     }
+
 });
 
 appControllers.controller('AnotherController', function($scope){
 
-    $scope.address = {
-        'street' : '7 Ned\'s Point'
-    }
+// stuff here
 
 });
 
