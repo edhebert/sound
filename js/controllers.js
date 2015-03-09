@@ -28,11 +28,11 @@ appControllers.controller('SoundController', function($scope, p5){
             // initialize the microphone
             mic = new p5.AudioIn();
             mic.start();
+
             // tell Angular that the mic is on
             $scope.mic = true;
 
-
-            
+            // smooth FFT by averaging with previous samples            
             var smoothing = 0.9;
 
             // sound buffer to analyze between 16-1024 (a power of 2)
@@ -109,6 +109,10 @@ appControllers.controller('SoundController', function($scope, p5){
                 // push the x, y values to a data array
                 dataArray.push([i, currentEnergy]);
 
+                // var result = sound.map(function(value, index, array) {
+                //     return [value.frequency, value.amplitude];
+                // });
+
                 // find the peak frequncy in the 2-5K frequency range
                 if (((i >= 2000) && (i <= 5000)) && (currentEnergy > peakAmplitude)) {
                     // this is the new peak - assign current freq and amplitude as peaks
@@ -173,7 +177,7 @@ appControllers.controller('SoundController', function($scope, p5){
                         text: 'Amplitude'
                     },
                     min: 0,
-                    max: 250,
+                    max: 300,
                     tickinterval: 50
                 },
                 series: [{
