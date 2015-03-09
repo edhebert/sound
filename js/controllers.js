@@ -28,6 +28,8 @@ appControllers.controller('SoundController', function($scope, p5){
             // initialize the microphone
             mic = new p5.AudioIn();
             mic.start();
+            // tell Angular that the mic is on
+            $scope.mic = true;
 
 
             
@@ -196,6 +198,16 @@ appControllers.controller('SoundController', function($scope, p5){
             analyzed = false;
         }
 
+        $scope.setMic = function(set) {
+            if (set == 'mute') {
+                mic.stop();
+                $scope.mic = false;
+            }
+            else {
+                mic.start();
+                $scope.mic = true;
+            }
+        }
     }
 
 });

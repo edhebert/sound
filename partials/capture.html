@@ -2,7 +2,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" ng-hide="analyzed" class="animate-show" ng-animate="'animate'">
-            <h2 class="waiting"><i class="fa fa-2x fa-volume-up"></i><br>listening for shot...</h2>
+            <div class="waiting">
+                <h2 ng-show="mic" class="waiting"><i class="fa fa-2x fa-volume-up"></i><br>listening for shot...</h2>
+                <button ng-show="mic" type="button" class="btn btn-warning" ng-click="setMic('mute')"><i class="fa fa-microphone-slash"></i> Mute Microphone</button>  
+                
+                <h2 ng-hide="mic" class="waiting"><i class="fa fa-2x fa-microphone-slash"></i><br>Microhone is muted...</h2>
+                <button ng-hide="mic" type="button" class="btn btn-warning" ng-click="setMic('enable')"><i class="fa fa-microphone"></i> Enable Microphone</button>              
+            </div>
+
         </div>
         <div class="col-md-4">
             <div ng-animate="'animate'" class="animate-show well" ng-show="analyzed">
