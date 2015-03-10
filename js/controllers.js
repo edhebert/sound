@@ -169,13 +169,11 @@ appControllers.controller('SoundController', function($scope, p5){
             // mic.stop();
 
             //update the Angular scope with this data, as it doesn't bind automatically
-            if (!triggered) {
-                $scope.$apply();
-            } else {
-                // reset trigger
-                triggered = false;
-            }
-            
+            $scope.$apply();
+
+            // reset trigger
+            triggered = false;
+
 
             //plot the data to a highchart
 
