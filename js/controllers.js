@@ -30,7 +30,7 @@ appControllers.controller('SoundController', function($scope, p5){
         var triggered = false;
 
         // threshold of sound that constitutes a 'hit'
-        var soundThreshold = 0.3;
+        var soundThreshold = 0.4;
 
         p.preload = function() {
            // sound = p.loadSound('ball-impact.mp3');
