@@ -26,6 +26,9 @@ appControllers.controller('SoundController', function($scope, p5){
         // boolean to denote whether sound has been hit
         var analyzed = false;
 
+        // whether the analysis was manually triggered
+        var triggered = false;
+
         // threshold of sound that constitutes a 'hit'
         var soundThreshold = 0.3;
 
@@ -166,7 +169,13 @@ appControllers.controller('SoundController', function($scope, p5){
             // mic.stop();
 
             //update the Angular scope with this data, as it doesn't bind automatically
-            $scope.$apply();
+            if (!triggered) {
+                $scope.$apply();
+            } else {
+                // reset trigger
+                triggered = false;
+            }
+            
 
             //plot the data to a highchart
 
@@ -231,6 +240,7 @@ appControllers.controller('SoundController', function($scope, p5){
         }
 
         $scope.triggerSound = function() {
+            triggered = true;
             analyzeSound();
         }
     }
