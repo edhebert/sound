@@ -5,6 +5,7 @@
             <div class="waiting">
                 <h2 ng-show="mic" class="waiting"><i class="fa fa-2x fa-volume-up"></i><br>listening for shot...</h2>
                 <button ng-show="mic" type="button" class="btn btn-warning" ng-click="setMic('mute')"><i class="fa fa-microphone-slash"></i> Mute Microphone</button>  
+                <button ng-show="mic" type="button" class="btn btn-warning" ng-click="triggerSound()"><i class="fa fa-exclamation"></i> Trigger Capture</button>
                 
                 <h2 ng-hide="mic" class="waiting"><i class="fa fa-2x fa-microphone-slash"></i><br>Microphone is muted.</h2>
                 <button ng-hide="mic" type="button" class="btn btn-warning" ng-click="setMic('enable')"><i class="fa fa-microphone"></i> Enable Microphone</button>              

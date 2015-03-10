@@ -217,6 +217,11 @@ appControllers.controller('SoundController', function($scope, p5){
                 $scope.mic = true;
             }
         }
+
+        $scope.triggerSound = function() {
+            // reset so that sound can be analyzed again
+            analyzeSound();
+        }
     }
 
 });
