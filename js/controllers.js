@@ -181,7 +181,17 @@ appControllers.controller('SoundController', function($scope, p5){
                 chart: {
                     type: 'spline',
                     zoomType: 'x',
-                    height: 500
+                    height: 500,
+
+                    resetZoomButton: {
+                        position: {
+                            align: 'left', 
+                            verticalAlign: 'top'
+                            // x: 0,
+                            // y: -30
+                        }
+                    }
+
                 },
                 colors: [
                     '#E5885E', 
