@@ -64,6 +64,7 @@ appControllers.controller('SoundController', function($scope, p5){
             p.background(122, 160, 175);
 
             var spectrum = fft.analyze(); 
+            var waveform = fft.waveform();
 
             var level = mic.getLevel();
             
@@ -75,7 +76,8 @@ appControllers.controller('SoundController', function($scope, p5){
 
             p.noFill();
 
-            p.stroke(229, 136, 94); // fft is orange
+            // fft spectrum in orange
+            p.stroke(229, 136, 94); 
             p.strokeWeight(3);
             p.beginShape();
             for (var i = 0; i< spectrum.length; i++){
@@ -84,10 +86,10 @@ appControllers.controller('SoundController', function($scope, p5){
             }
             p.endShape();
 
-            var waveform = fft.waveform();
+            // time domain waveform in white
             p.noFill();
             p.beginShape();
-            p.stroke(255); // time domain is white
+            p.stroke(255); 
             p.strokeWeight(1);
             for (var i = 0; i< waveform.length; i++){
                 var x = p.map(i, 0, waveform.length, 0, p.width);
@@ -98,7 +100,6 @@ appControllers.controller('SoundController', function($scope, p5){
         };
 
         var analyzeSound = function() {
-
             // pulse background color red 
             p.background(229, 136, 94);
 
