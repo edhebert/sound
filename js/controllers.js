@@ -1,8 +1,13 @@
-/*  Titleist Acoustics Testing
-    ver 0.0.1 
-    3/1/2015
-    Ed Hebert ed.hebert@acushnetgolf.com
-*/
+/* Audio Analysis Software 
+ *
+ * Written as a Final Project for Harvard CSCI-E3
+ * Ed Hebert
+ * May 2015
+ * ehebert@fas.harvard edu
+ *
+ * This code makes use of AngularJS, P5.JS and P5.sound libraries for audio capture and analysis tools
+ * http://p5js.org
+ */
 
 
 var appControllers = angular.module('appControllers', ['ngAnimate']);
@@ -29,9 +34,28 @@ appControllers.controller('SoundController', function($scope, p5){
         // whether the analysis was manually triggered
         var triggered = false;
 
-        // threshold of sound that constitutes a 'hit'
-        var soundThreshold = 0.4;
+        // threshold of sound that constitutes a 'hit' - grab from range slider
+        var soundThreshold = $("#micSensitivity").val();
 
+        // add an event listener for change of mic sensitivity (anytime input is dragged about)
+        var micSensitivity = document.getElementById("micSensitivity");
+        var micOutput = document.getElementById("micOutput");
+
+        micSensitivity.addEventListener("input", function() {
+            // higher value is less sensitive, so reverse it
+            soundThreshold = parseFloat(1.0 - micSensitivity.value).toFixed(1);
+            // inform about min and max settings
+            if (micSensitivity.value == 0.1) {
+                micOutput.value = 'min';
+            } else if (micSensitivity.value == 0.9) {
+                micOutput.value = 'max';
+            } else {
+                micOutput.value = micSensitivity.value;
+            }
+            
+        });
+
+        var mic
         p.preload = function() {
            // sound = p.loadSound('ball-impact.mp3');
         }
@@ -49,15 +73,17 @@ appControllers.controller('SoundController', function($scope, p5){
             // duration of buffer == (bins * 2) / 44100 
             var binCount = 1024;
 
-            // p5.sound function that calculates frequency/amplitude of the sound sample using FFT
+            // p5.sound fast Fourier transform function 
+            // will be used to calculates frequency/amplitude of the sound sample using FFT
             fft = new p5.FFT(smoothing,binCount);
 
             // analyze input from the mic
             fft.setInput(mic);
 
+            // create the Processing canvas in the top quarter of the screen height
             p.createCanvas(p.windowWidth, p.windowHeight * 0.25);
             p.noStroke();
-            // sound.play();
+
         };
 
         p.draw = function() {
@@ -76,7 +102,7 @@ appControllers.controller('SoundController', function($scope, p5){
 
             p.noFill();
 
-            // fft spectrum in orange
+            // fft spectrum drawn in orange
             p.stroke(229, 136, 94); 
             p.strokeWeight(3);
             p.beginShape();
@@ -86,7 +112,7 @@ appControllers.controller('SoundController', function($scope, p5){
             }
             p.endShape();
 
-            // time domain waveform in white
+            // normal sound / time domain waveform drawn in white
             p.noFill();
             p.beginShape();
             p.stroke(255); 
@@ -157,13 +183,20 @@ appControllers.controller('SoundController', function($scope, p5){
             // this.highMid = [2600, 5200];
             // this.treble = [5200, 14000];
 
+            var bass = Math.round(fft.getEnergy('bass'));
+            var lowMid = Math.round(fft.getEnergy('lowMid'));
+            var mid = Math.round(fft.getEnergy('mid'));
+            var highMid = Math.round(fft.getEnergy('highMid'));
+            var treble = Math.round(fft.getEnergy('treble'));
+
+            // make these available in the Angular Scope
             $scope.peakFrequency = peakFrequency;
             $scope.peakAmplitude = peakAmplitude;
-            $scope.bass = Math.round(fft.getEnergy('bass'));
-            $scope.lowMid = Math.round(fft.getEnergy('lowMid'));
-            $scope.mid = Math.round(fft.getEnergy('mid'));
-            $scope.highMid = Math.round(fft.getEnergy('highMid'));
-            $scope.treble = Math.round(fft.getEnergy('treble'));
+            $scope.bass = bass;
+            $scope.lowMid = lowMid;
+            $scope.mid = mid;
+            $scope.highMid = highMid;
+            $scope.treble = treble;
 
 
             // stop the audio 
@@ -178,11 +211,11 @@ appControllers.controller('SoundController', function($scope, p5){
 
             //plot the data to a highchart
 
-            $('#highchart').highcharts({
+            $('#chart1').highcharts({
                 chart: {
                     type: 'spline',
                     zoomType: 'x',
-                    height: 500,
+                    height: 480,
 
                     resetZoomButton: {
                         position: {
@@ -201,8 +234,11 @@ appControllers.controller('SoundController', function($scope, p5){
                 credits: {
                     enabled: false
                 },
+                legend: {
+                    enabled: false
+                },
                 title: {
-                    text: ''
+                    text: 'Frequency Analysis (FFT)'
                 },
                 xAxis: {
                     title: {
@@ -214,7 +250,7 @@ appControllers.controller('SoundController', function($scope, p5){
                         text: 'Amplitude'
                     },
                     min: 0,
-                    max: 300,
+                    max: 250,
                     tickinterval: 50
                 },
                 series: [{
@@ -225,6 +261,66 @@ appControllers.controller('SoundController', function($scope, p5){
                     enabled: true
                 }
             });
+
+            $('#chart2').highcharts({
+                chart: {
+                    type: 'column',
+                    height: 495
+                },
+                title: {
+                    text: 'Average Energy Distribution'
+                },
+                colors: [
+                    '#E5885E', 
+                    '#0066FF', 
+                    '#00CCFF'],
+                credits: {
+                    enabled: false
+                },
+                legend: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: [
+                        'Bass<br>20-140Hz',
+                        'Lo-Mid<br>140-400Hz',
+                        'Mid<br>400-2600Hz',
+                        'Hi-Mid<br>2600-5200',
+                        'Treble<br>5200-14000',
+                    ],
+                    crosshair: true,
+                    title: {
+                        text: 'Frequency'
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    max: 250,
+                    tickinterval: 50,
+                    title: {
+                        text: 'Amplitude'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Sound Capture',
+                    data: [bass, lowMid, mid, highMid, treble]
+                }]
+            });
+
         }
 
         $scope.resetSound = function(save) {

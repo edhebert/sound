@@ -1,7 +1,9 @@
-/* Titleist Audio Analysis Software v 0.0.4
+/* Titleist Audio Analysis Software 
  *
+ * Written as a Final Project for Harvard CSCI-E3
  * Ed Hebert
- * February 19, 2015
+ * May 2015
+ * ehebert@fas.harvard edu
  *
  * This code makes use of P5.JS and P5.sound libraries
  * http://p5js.org
@@ -42,15 +44,15 @@ titleistSound.factory('sketch', ['p5', function(p5) {
     p.draw = function() {
         p.background(240);
 
+        // analyze the input and save the spectrum data
         var spectrum = fft.analyze(); 
         var level = mic.getLevel();
         
 
-        // console.log(level);
+        // if the current level is more than the threshold, conduct the analysis
         if (level > soundThreshold && !analyzed)
         {
           analyzeSound();
-          console.log("sound level: " + level);
         }
 
         p.noFill();

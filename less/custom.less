@@ -1,8 +1,11 @@
-/*  Titleist Acoustics Testing
-    ver 0.0.1 
-    3/1/2015
-    Ed Hebert ed.hebert@acushnetgolf.com
-*/
+/* Audio Analysis Software 
+ *
+ * Written as a Final Project for Harvard CSCI-E3
+ * Ed Hebert
+ * May 2015
+ * ehebert@fas.harvard edu
+ *
+ */
 
 // Custom CSS Styles
 
@@ -80,7 +83,7 @@ header h2 {
 
 // message that displays when waiting for a shot
 .waiting {
-  margin-top: 6%;
+  margin-top: 3%;
   color: #999;
   text-align: center;
 }
@@ -110,13 +113,17 @@ footer {
   height: 75px;
 }
 
-footer p {
+footer p, footer a {
   color: #fff;
   padding-top: 15px;
   font-weight: 900;
   font-size: 9px;
   text-transform: uppercase;
   text-align: right;
+}
+
+footer a:hover {
+  color: @brand-warning;
 }
 
 // the p5 canvas
@@ -144,6 +151,11 @@ animate-show {
   opacity: 0;
 }
 
-#highchart {
+#chart1, #chart2 {
     width: 100%;
+}
+
+#micSensitivity {
+  width: 200px;
+  margin: 0 auto;
 }
