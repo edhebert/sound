@@ -1,10 +1,11 @@
 <h1 id="sound-analyzer">Sound Analyzer</h1>
-<p>Ed Hebert
-Harvard CSCI E-3
-ehebert@fas.harvard.edu</p>
+<p>Ed Hebert<br>Harvard CSCI E-3<br>ehebert@fas.harvard.edu</p>
 <p><strong>NOTE</strong> - This app needs to run on a server. Localhost will work, but I also have the app running at <a href="http://edhebert.org/sound">http://edhebert.org/sound</a></p>
+<p>Unless run from an SSL connection, the app will ask for the use of your microphone each time it&#39;s run. If you want to bypass that annoying user experience, you can also choose to run via a shared SSL at <a href="https://siteground138.com/~edhebert/sound/">https://siteground138.com/~edhebert/sound/</a> Since it&#39;s a shared cert, you&#39;ll have to manually agree to trust it.</p>
+<p>Note that with a proper SSL whose certificate matched the domain, this would not be an issue. On my own locahost install, I created my own self-signed certificate to match the local domain I&#39;m running. This corrects all UX problems.</p>
 <h2 id="abstract">Abstract</h2>
-<p>An app to capture and measure impact sound events, like a golf club hitting a ball (or something sharp like hand claps or drum hits). This app was written to assist in my research work in product development. I&#39;m a golf product designer, and want to better understand the sound of golf ball impacts and learn more about their acoustic signature. Sound correlates highly with the subjective golfer perception of &#39;feel&#39; (i.e., whether a ball product feels good or bad, too hard or too soft). This data will help us better objectify that fuzzy piece of player research.</p>
+<p>The Sound Analyzer is an app I created for use in my job. It&#39;s designed to capture and measure impact sound events, like a golf club hitting a ball (or something sharp like hand claps or drum hits). </p>
+<p>This app was written to assist in my research work in product development. I&#39;m a golf product designer, and want to better understand the sound of golf ball impacts and learn more about their acoustic signature. Sound correlates highly with the subjective golfer perception of &#39;feel&#39; (i.e., whether a ball product feels good or bad, too hard or too soft). This data will help us better objectify that fuzzy piece of player research.</p>
 <p>Built with a combination of vanilla JavaScript, jQuery, P5.JS and AngularJS </p>
 <ul>
 <li><a href="http://p5js.org">http://p5js.org</a></li>

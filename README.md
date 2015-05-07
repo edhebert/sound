@@ -1,14 +1,20 @@
 # Sound Analyzer
 
-Ed Hebert
-Harvard CSCI E-3
+Ed Hebert  
+Harvard CSCI E-3  
 ehebert@fas.harvard.edu
 
 **NOTE** - This app needs to run on a server. Localhost will work, but I also have the app running at http://edhebert.org/sound
 
+Unless run from an SSL connection, the app will ask for the use of your microphone each time it's run. If you want to bypass that annoying user experience, you can also choose to run via a shared SSL at https://siteground138.com/~edhebert/sound/ Since it's a shared cert, you'll have to manually agree to trust it.
+
+Note that with a proper SSL whose certificate matched the domain, this would not be an issue. On my own locahost install, I created my own self-signed certificate to match the local domain I'm running. This corrects all UX problems.
+
 ## Abstract
 
-An app to capture and measure impact sound events, like a golf club hitting a ball (or something sharp like hand claps or drum hits). This app was written to assist in my research work in product development. I'm a golf product designer, and want to better understand the sound of golf ball impacts and learn more about their acoustic signature. Sound correlates highly with the subjective golfer perception of 'feel' (i.e., whether a ball product feels good or bad, too hard or too soft). This data will help us better objectify that fuzzy piece of player research.
+The Sound Analyzer is an app I created for use in my job. It's designed to capture and measure impact sound events, like a golf club hitting a ball (or something sharp like hand claps or drum hits). 
+
+This app was written to assist in my research work in product development. I'm a golf product designer, and want to better understand the sound of golf ball impacts and learn more about their acoustic signature. Sound correlates highly with the subjective golfer perception of 'feel' (i.e., whether a ball product feels good or bad, too hard or too soft). This data will help us better objectify that fuzzy piece of player research.
 
 Built with a combination of vanilla JavaScript, jQuery, P5.JS and AngularJS 
 
