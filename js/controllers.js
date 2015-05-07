@@ -7,6 +7,8 @@
  *
  * This code makes use of AngularJS, P5.JS and P5.sound libraries for audio capture and analysis tools
  * http://p5js.org
+ *
+ * For more info, please read the README.MD file in the root folder for this app
  */
 
 
@@ -55,9 +57,10 @@ appControllers.controller('SoundController', function($scope, p5){
             
         });
 
-        var mic
+        var mic;
+
         p.preload = function() {
-           // sound = p.loadSound('ball-impact.mp3');
+           // sound = p.loadSound('ball-impact.mp3'); // used for testing with a 'control' sound
         }
 
         p.setup = function() {

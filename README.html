@@ -1,6 +1,46 @@
-<p>Sound Analyzer</p>
+<h1 id="sound-analyzer">Sound Analyzer</h1>
 <p>Ed Hebert
 Harvard CSCI E-3
 ehebert@fas.harvard.edu</p>
-<p>An app to capture and measure quick sound events, like hand claps or drum hits. I wrote it as an app to assist in my work, to analyze the sound of golf ball impacts and learn more about their acoustic signature.</p>
-<p>Built with P5.JS and AngularJS</p>
+<p><strong>NOTE</strong> - This app needs to run on a server. Localhost will work, but I also have the app running at <a href="http://edhebert.org/sound">http://edhebert.org/sound</a></p>
+<h2 id="abstract">Abstract</h2>
+<p>An app to capture and measure impact sound events, like a golf club hitting a ball (or something sharp like hand claps or drum hits). This app was written to assist in my research work in product development. I&#39;m a golf product designer, and want to better understand the sound of golf ball impacts and learn more about their acoustic signature. Sound correlates highly with the subjective golfer perception of &#39;feel&#39; (i.e., whether a ball product feels good or bad, too hard or too soft). This data will help us better objectify that fuzzy piece of player research.</p>
+<p>Built with a combination of vanilla JavaScript, jQuery, P5.JS and AngularJS </p>
+<ul>
+<li><a href="http://p5js.org">http://p5js.org</a></li>
+<li><a href="https://angularjs.org/">https://angularjs.org/</a></li>
+<li>Angular-P5 wrapper code <a href="https://github.com/wxactly/angular-p5.js">https://github.com/wxactly/angular-p5.js</a></li>
+<li>Charting of captured data using Highcharts - <a href="http://www.highcharts.com/">http://www.highcharts.com/</a></li>
+<li>UI created with Bootstrap - <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
+</ul>
+<p>Angular direction provided by two lynda.com videos</p>
+<ul>
+<li><a href="http://www.lynda.com/AngularJS-tutorials/Up-Running-AngularJS/154414-2.html">http://www.lynda.com/AngularJS-tutorials/Up-Running-AngularJS/154414-2.html</a></li>
+<li><a href="http://www.lynda.com/AngularJS-tutorials/Building-Data-Driven-App-AngularJS/368918-2.html">http://www.lynda.com/AngularJS-tutorials/Building-Data-Driven-App-AngularJS/368918-2.html</a></li>
+</ul>
+<h2 id="details">Details</h2>
+<p>Since this is an experiment with using AngularJS, I structured the app according to an MVC format. The bulk of my JavaScript code resides in the js/controllers.js file, particularly in the &quot;SoundController&quot; controller function. There&#39;s a loose data model with information being passed to and from views via $scope variables. The &#39;views&#39; in my Angular MVC are a global layout file that also loads all dependencies for the app (index.html), and a partial html file that does all the drawing and charting. It&#39;s at partials/capture.html  </p>
+<p>The SoundController code contains the P5JS functionality, and uses the P5.JS structure of a setup() function and a draw() function. This is analagous to the Processing language on which it is based. (<a href="http://processing.org">http://processing.org</a>) </p>
+<p>The setup() initializes key variables and defines the canvas. The draw() function loops continuously (approx 60fps), and continually refreshes the canvas drawing functions in realtime. </p>
+<p>Note that to keep P5JS out of the global scope and to play nicely with Angular, I had to create an instance of P5 and pass it as &#39;p&#39; into the function - for more, see <a href="http://p5js.org/learn/examples/Instance_Mode_Instantiation.php">http://p5js.org/learn/examples/Instance_Mode_Instantiation.php</a></p>
+<h2 id="key-features-of-the-app">Key Features of the App</h2>
+<ul>
+<li><p>Uses P5.JS to enable and capture audio from the environment via microphone input</p>
+</li>
+<li><p>Captures an array of audio data the time domain (amplitudes over time) and draws that info to the P5&#39;s redering of an HTML5 canvas element as a real-time visualization (white line)</p>
+</li>
+<li><p>performs a Fast-Fourier transform (FFT) analysis of that same sound information to convert that sound data to an array of frequencies detected in that sound (frequencies vs. amplitudes). It also maps that data visualiztion in real-time to the P5 canvas as the orange line.</p>
+</li>
+<li><p>Listens for sound events that cross a certain threshold of loudness/amplitude (that threshold is controlled via an event listener coupled to the input slider in the user interface).</p>
+</li>
+<li><p>When app detects a sound event that crosses its threshold, it captures and analyzes that moment in time. This data represents the impact event (of a ball and club in my test case, but could be any other sharp sound like a hand clap or similar). </p>
+</li>
+<li><p>Key elements of the captured data are displayed on a table at the left, and the entire array of data is sent to a custom Highcharts line chart that displays the captured audio frequency data. This chart allows the user to zoom in to highlight details of the event. </p>
+</li>
+<li><p>Likewise, another Highchart bar chart is created that creates a histogram of averages of sound energy in certain interesting buckets of frequency ranges. This chart is easier to digest for a casual user or useful for an executive looking for an &#39;at a glance&#39; approximation of a ball&#39;s sound signature. </p>
+</li>
+<li><p>Both charts have the ability to export data to PDF, image file, CSV, or XLS data. I&#39;m leveraging Highcharts for this capability.</p>
+</li>
+<li><p>The buttons on the lower left of the Ananysis view allow the user to either rehit of save the shot. If the user chooses to save the shot, a JSON file is created for archive. Ultimately this data wold be stored to a backend DB once the test is incorporated in production.</p>
+</li>
+</ul>
