@@ -27,16 +27,16 @@ appControllers.controller('SoundController', function($scope, p5){
         // the FFT analysis of the sound
         var fft;
         
-        // the sound data array
-        var data =[];
+        // the sound data object
+        var data ={};
 
         // boolean to denote whether sound has been hit
         var analyzed = false;
 
-        // whether the analysis was manually triggered
+        // whether the analysis was manually triggered by a button, or via real sound input
         var triggered = false;
 
-        // threshold of sound that constitutes a 'hit' - grab from range slider
+        // threshold of sound that constitutes a 'hit' - grab from HTML5 range slider
         var soundThreshold = $("#micSensitivity").val();
 
         // add an event listener for change of mic sensitivity (anytime input is dragged about)
@@ -57,6 +57,7 @@ appControllers.controller('SoundController', function($scope, p5){
             
         });
 
+        // variable to hold the mic audio input
         var mic;
 
         p.preload = function() {
@@ -95,10 +96,9 @@ appControllers.controller('SoundController', function($scope, p5){
             var spectrum = fft.analyze(); 
             var waveform = fft.waveform();
 
+            // get the current value of the mic, and compare it against the threshold
             var level = mic.getLevel();
             
-
-            // console.log(level);
             if (level > soundThreshold && !analyzed) {
               analyzeSound();
             }
@@ -145,18 +145,20 @@ appControllers.controller('SoundController', function($scope, p5){
             var peakAmplitude = 0;
             var peakFrequency = 0;
 
-            // build fft analysis array
+            // build fft analysis array for 
             var dataArray = [];
+
+            // arrays to contain the individual amplitudes and frquencies
+            var freqs = [];
+            var amplitudes = [];
 
             for (var i = minFreq; i < maxFreq; i=i + freqGap) {
                 // get energy at this frequency
                 currentEnergy = fft.getEnergy(i);
 
-                // push each value as a JSON object
-                data.push({
-                    'frequency': i, 
-                    'amplitude' : currentEnergy
-                 });
+                // push each value to the respective arrays
+                freqs.push(i);
+                amplitudes.push(currentEnergy);
 
                 // push the x, y values to a data array
                 dataArray.push([i, currentEnergy]);
@@ -173,8 +175,12 @@ appControllers.controller('SoundController', function($scope, p5){
                 }
             }
 
-            // send data to an element in the main index template (not a partial)
-            //document.getElementById("output").innerHTML = JSON.stringify(data);
+            // construct a JSON object with the data from the shot
+            data = {
+                'frequencies': freqs, 
+                'amplitudes' : amplitudes
+            };
+
 
             // $scope.soundData = data;
 
@@ -201,10 +207,6 @@ appControllers.controller('SoundController', function($scope, p5){
             $scope.highMid = highMid;
             $scope.treble = treble;
 
-
-            // stop the audio 
-            // mic.stop();
-
             //update the Angular scope with this data, as it doesn't bind automatically
             $scope.$apply();
 
@@ -212,8 +214,7 @@ appControllers.controller('SoundController', function($scope, p5){
             triggered = false;
 
 
-            //plot the data to a highchart
-
+            //line chart of the FFt analysis
             $('#chart1').highcharts({
                 chart: {
                     type: 'spline',
@@ -224,11 +225,8 @@ appControllers.controller('SoundController', function($scope, p5){
                         position: {
                             align: 'left', 
                             verticalAlign: 'top'
-                            // x: 0,
-                            // y: -30
                         }
                     }
-
                 },
                 colors: [
                     '#E5885E', 
@@ -265,6 +263,7 @@ appControllers.controller('SoundController', function($scope, p5){
                 }
             });
 
+            // bar chart histogram of sound energy levels
             $('#chart2').highcharts({
                 chart: {
                     type: 'column',
@@ -323,7 +322,6 @@ appControllers.controller('SoundController', function($scope, p5){
                     data: [bass, lowMid, mid, highMid, treble]
                 }]
             });
-
         }
 
         $scope.resetSound = function(save) {
@@ -336,6 +334,7 @@ appControllers.controller('SoundController', function($scope, p5){
             analyzed = false;
         }
 
+        // toggle the activatin of the mic when button pressed
         $scope.setMic = function(set) {
             if (set == 'mute') {
                 mic.stop();
@@ -347,18 +346,13 @@ appControllers.controller('SoundController', function($scope, p5){
             }
         }
 
+        // handler for click of the manual trigger button
         $scope.triggerSound = function() {
             triggered = true;
             analyzeSound();
         }
     }
-
 });
 
-appControllers.controller('AnotherController', function($scope){
-
-// stuff here
-
-});
 
 
