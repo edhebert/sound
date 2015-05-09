@@ -110,7 +110,7 @@ appControllers.controller('SoundController', function($scope, p5){
             p.strokeWeight(3);
             p.beginShape();
             for (var i = 0; i< spectrum.length; i++){
-                // expand spectrum visually by multiplying i * 2
+                // expand spectrum visually by multiplying i * 2 (makes the FFT more spread out)
                 p.vertex(i * 2, p.map(spectrum[i], 0, 255, p.height, 0) );
             }
             p.endShape();
@@ -121,6 +121,7 @@ appControllers.controller('SoundController', function($scope, p5){
             p.stroke(255); 
             p.strokeWeight(1);
             for (var i = 0; i< waveform.length; i++){
+                // map the array data to coordinates on the canvas
                 var x = p.map(i, 0, waveform.length, 0, p.width);
                 var y = p.map( waveform[i], 0, 255, 0, p.height);
                 p.vertex(x,y);
