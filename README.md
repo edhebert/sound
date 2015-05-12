@@ -58,4 +58,4 @@ Note that to keep P5JS out of the global scope and to play nicely with Angular, 
 
 * Both charts have the ability to export data to PDF, image file, CSV, or XLS data. I'm leveraging Highcharts for this capability.
 
-* The buttons on the lower left of the Ananysis view allow the user to either rehit of save the shot. If the user chooses to save the shot, a JSON file is created for archive. Ultimately this data wold be stored to a backend DB once the test is incorporated in production.
+* The buttons on the lower left of the Analysis view allow the user to either rehit or save the shot. If the user chooses to save the shot, a JSON file is created for archive. Ultimately this data wold be stored to a backend DB once the test is incorporated in production.

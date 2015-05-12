@@ -33,6 +33,8 @@ appControllers.controller('SoundController', function($scope, p5){
         // boolean to denote whether sound has been hit
         var analyzed = false;
 
+        var test = true;
+
         // whether the analysis was manually triggered by a button, or via real sound input
         var triggered = false;
 
@@ -224,7 +226,7 @@ appControllers.controller('SoundController', function($scope, p5){
 
                     resetZoomButton: {
                         position: {
-                            align: 'left', 
+                            align: 'right', 
                             verticalAlign: 'top'
                         }
                     }
@@ -252,7 +254,7 @@ appControllers.controller('SoundController', function($scope, p5){
                         text: 'Amplitude'
                     },
                     min: 0,
-                    max: 250,
+                    max: 300,
                     tickinterval: 50
                 },
                 series: [{
@@ -298,7 +300,7 @@ appControllers.controller('SoundController', function($scope, p5){
                 },
                 yAxis: {
                     min: 0,
-                    max: 250,
+                    max: 300,
                     tickinterval: 50,
                     title: {
                         text: 'Amplitude'
