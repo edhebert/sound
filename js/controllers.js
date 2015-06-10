@@ -125,7 +125,7 @@ appControllers.controller('SoundController', function($scope, p5){
             for (var i = 0; i< waveform.length; i++){
                 // map the array data to coordinates on the canvas
                 var x = p.map(i, 0, waveform.length, 0, p.width);
-                var y = p.map( waveform[i], 0, 255, 0, p.height);
+                var y = p.map( waveform[i], -1, 1, 0, p.height);
                 p.vertex(x,y);
             }
             p.endShape();
@@ -148,12 +148,16 @@ appControllers.controller('SoundController', function($scope, p5){
             var peakAmplitude = 0;
             var peakFrequency = 0;
 
-            // build fft analysis array for 
+            // build fft analysis array  
             var dataArray = [];
+            var timeArray = [];
 
-            // arrays to contain the individual amplitudes and frquencies
+            // arrays to contain the individual amplitudes and frequencies
             var freqs = [];
             var amplitudes = [];
+
+            var wavTime = [];
+            var wavAmp = [];
 
             for (var i = minFreq; i < maxFreq; i=i + freqGap) {
                 // get energy at this frequency
@@ -176,6 +180,12 @@ appControllers.controller('SoundController', function($scope, p5){
                     peakAmplitude = currentEnergy;
                     peakFrequency = i;
                 }
+            }
+
+            var waveform = fft.waveform();
+            var j = waveform.length;
+            for (var i = 0; i < j; i++) {
+                timeArray.push([i, waveform[i]]);
             }
 
             // construct a JSON object with the data from the shot
@@ -266,14 +276,19 @@ appControllers.controller('SoundController', function($scope, p5){
                 }
             });
 
-            // bar chart histogram of sound energy levels
+            //line chart of the time/waveform analysis
             $('#chart2').highcharts({
                 chart: {
-                    type: 'column',
-                    height: 495
-                },
-                title: {
-                    text: 'Average Energy Distribution'
+                    type: 'spline',
+                    zoomType: 'x',
+                    height: 480,
+
+                    resetZoomButton: {
+                        position: {
+                            align: 'right', 
+                            verticalAlign: 'top'
+                        }
+                    }
                 },
                 colors: [
                     '#E5885E', 
@@ -285,46 +300,90 @@ appControllers.controller('SoundController', function($scope, p5){
                 legend: {
                     enabled: false
                 },
+                title: {
+                    text: 'Waveform Capture'
+                },
                 xAxis: {
-                    categories: [
-                        'Bass<br>20-140Hz',
-                        'Lo-Mid<br>140-400Hz',
-                        'Mid<br>400-2600Hz',
-                        'Hi-Mid<br>2600-5200',
-                        'Treble<br>5200-14000',
-                    ],
-                    crosshair: true,
                     title: {
-                        text: 'Frequency'
+                        text: 'Time'
                     }
                 },
                 yAxis: {
-                    min: 0,
-                    max: 300,
-                    tickinterval: 50,
                     title: {
                         text: 'Amplitude'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
+                    },
+                    min: -1,
+                    max: 1,
                 },
                 series: [{
-                    name: 'Sound Capture',
-                    data: [bass, lowMid, mid, highMid, treble]
-                }]
+                    name: "Sound Capture",
+                    data: timeArray
+                }],
+                exporting: {
+                    enabled: true
+                }
             });
+
+
+            // bar chart histogram of sound energy levels
+            // $('#chart2').highcharts({
+            //     chart: {
+            //         type: 'column',
+            //         height: 495
+            //     },
+            //     title: {
+            //         text: 'Average Energy Distribution'
+            //     },
+            //     colors: [
+            //         '#E5885E', 
+            //         '#0066FF', 
+            //         '#00CCFF'],
+            //     credits: {
+            //         enabled: false
+            //     },
+            //     legend: {
+            //         enabled: false
+            //     },
+            //     xAxis: {
+            //         categories: [
+            //             'Bass<br>20-140Hz',
+            //             'Lo-Mid<br>140-400Hz',
+            //             'Mid<br>400-2600Hz',
+            //             'Hi-Mid<br>2600-5200',
+            //             'Treble<br>5200-14000',
+            //         ],
+            //         crosshair: true,
+            //         title: {
+            //             text: 'Frequency'
+            //         }
+            //     },
+            //     yAxis: {
+            //         min: 0,
+            //         max: 300,
+            //         tickinterval: 50,
+            //         title: {
+            //             text: 'Amplitude'
+            //         }
+            //     },
+            //     tooltip: {
+            //         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            //         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            //             '<td style="padding:0"><b>{point.y}</b></td></tr>',
+            //         footerFormat: '</table>',
+            //         shared: true,
+            //         useHTML: true
+            //     },
+            //     plotOptions: {
+            //         column: {
+            //             pointPadding: 0.2,
+            //             borderWidth: 0
+            //         }
+            //     },
+            //     series: [{
+            //         name: 'Sound Capture',
+            //         data: [bass, lowMid, mid, highMid, treble]
+            //     }]
+            // });
         }
 
         $scope.resetSound = function(save) {
