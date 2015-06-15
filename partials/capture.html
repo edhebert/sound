@@ -9,8 +9,8 @@
                 <br>
                 <div ng-show="mic">                
                     <label for="micSensitivity">Sound Trigger Sensitivity</label>
-                    <input type="range" min="0.1" max="0.9" value="0.5" step="0.1" id="micSensitivity">
-                    <output for="micSensitivity" id="micOutput">0.5</output>
+                    <input type="range" min="1" max="9" value="5" step="1" id="micSensitivity">
+                    <output for="micSensitivity" id="micOutput">5</output>
                 </div>
 
                 
@@ -52,6 +52,14 @@
                             <td>Average Treble Amplitude (5200-14000 Hz)</td>
                             <td>{{treble}}</td>
                         </tr>
+                        <tr>
+                            <td>Centroid 1 (Log First Frequency Moment)</td>
+                            <td>{{centroid}}</td>
+                        </tr>   
+                        <tr>
+                            <td>Centroid 2 (First Frequency Moment)</td>
+                            <td>{{centroid2}}</td>
+                        </tr>                                            
                     </tbody>
                 </table>
                 <hr>

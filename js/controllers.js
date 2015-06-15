@@ -1,14 +1,11 @@
 /* Audio Analysis Software 
  *
- * Written as a Final Project for Harvard CSCI-E3
  * Ed Hebert
  * May 2015
- * ehebert@fas.harvard edu
  *
  * This code makes use of AngularJS, P5.JS and P5.sound libraries for audio capture and analysis tools
  * http://p5js.org
- *
- * For more info, please read the README.MD file in the root folder for this app
+ * http://angularjs.org
  */
 
 
@@ -47,11 +44,11 @@ appControllers.controller('SoundController', function($scope, p5){
 
         micSensitivity.addEventListener("input", function() {
             // higher value is less sensitive, so reverse it
-            soundThreshold = parseFloat(1.0 - micSensitivity.value).toFixed(1);
+            soundThreshold = parseFloat(1.0 - (micSensitivity.value / 10).toFixed(1));
             // inform about min and max settings
-            if (micSensitivity.value == 0.1) {
+            if (micSensitivity.value == 1) {
                 micOutput.value = 'min';
-            } else if (micSensitivity.value == 0.9) {
+            } else if (micSensitivity.value == 9) {
                 micOutput.value = 'max';
             } else {
                 micOutput.value = micSensitivity.value;
@@ -159,6 +156,16 @@ appControllers.controller('SoundController', function($scope, p5){
             var wavTime = [];
             var wavAmp = [];
 
+            // calculate 'first moment of frequency' centroid
+            // see 'Evolution of Impact Sound on the Feel of a Golf Shot'
+            // (Roberts et. al., 2005) - Section 5.2, Part (v).
+
+            var centroid;
+            var centroid2;
+            var sumAmplitudes = 0;
+            var sumAmpLogFreq = 0;
+            var sumAmpFreq = 0;
+
             for (var i = minFreq; i < maxFreq; i=i + freqGap) {
                 // get energy at this frequency
                 currentEnergy = fft.getEnergy(i);
@@ -166,6 +173,16 @@ appControllers.controller('SoundController', function($scope, p5){
                 // push each value to the respective arrays
                 freqs.push(i);
                 amplitudes.push(currentEnergy);
+
+                // sum amp * logFreq
+                if (i != 0) {
+                    sumAmpLogFreq += currentEnergy * Math.log10(i);
+                    sumAmpFreq += currentEnergy * i;
+                    // console.log("i = " + i + " log(10)i = " + Math.log10(i));   
+
+                    // sum the amplitudes
+                    sumAmplitudes += currentEnergy;                 
+                } 
 
                 // push the x, y values to a data array
                 dataArray.push([i, currentEnergy]);
@@ -181,6 +198,12 @@ appControllers.controller('SoundController', function($scope, p5){
                     peakFrequency = i;
                 }
             }
+
+            console.log("Ampitude sum: ", sumAmplitudes + " , Log * Freq sum: " + sumAmpLogFreq);
+
+            // calculate centroid (see above 'Roberts' reference)
+            centroid = Math.pow(10, (sumAmpLogFreq / sumAmplitudes));
+            centroid2 = sumAmpFreq / sumAmplitudes;
 
             var waveform = fft.waveform();
             var j = waveform.length;
@@ -219,6 +242,8 @@ appControllers.controller('SoundController', function($scope, p5){
             $scope.mid = mid;
             $scope.highMid = highMid;
             $scope.treble = treble;
+            $scope.centroid = centroid;
+            $scope.centroid2 = centroid2;
 
             //update the Angular scope with this data, as it doesn't bind automatically
             $scope.$apply();
